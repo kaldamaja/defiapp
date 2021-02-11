@@ -1,0 +1,79 @@
+    <% if user_signed_in? %>
+      <%= link_to new_post_path, style: "text-decoration:none;" do %>
+        <div class="kuulutused">
+          <button type="button" class="btn btn-kuulutused btn-lg btn-block">Lisa kuulutus</button>
+        </div>
+      <% end %>
+
+
+    <% end %>
+
+
+    <% @posts.each do |post| %>
+
+      <div class="card" style="width: 28rem; margin: auto; margin-bottom: 20px;">
+
+
+                <div class="kast">
+
+                    <% if post.image.attached? %>
+                      <%= image_tag post.image, class: "post-image" %>
+                    <% end %>
+
+                </div>
+
+
+                <div class="post-user-image">
+
+                    <% if post.user.avatar.attached? %>
+                      <%= image_tag post.user.avatar, size: "70", class: "rounded-circle", style: "object-fit:cover" %>
+                    <% else %>
+                      <%= image_tag 'user.jpg', size: "70", class: "rounded-circle" %>
+                    <% end %>
+
+                </div>
+
+              <div class="post-username">
+
+                <h5><%= post.user.username %></h5>
+
+              </div>
+
+              
+              <div class="kaardi-sisu">
+                  <div class="post-title">
+                    <h3><%= post.title %></h3>
+                  </div>
+                  
+
+                  <div class="post-text">
+                    <%= post.body %>
+                  </div>
+      
+              </div>
+
+
+                  <div class="posti-nupud ml-auto">
+
+                    <%= link_to post, style: "text-decoration:none;" do %>
+                      <div class="vaata-nupp">
+                          <button type="button" class="btn btn-kuulutused">Vaata</button>
+                      </div>
+                    <% end %>
+
+                    <% if post.user == current_user %>
+                      <%= link_to 'Edit', edit_post_path(post) %>
+
+                      <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="fa fa-trash-o fa-lg" aria-hidden="true" style="color:black;"></i>
+                      <% end %>
+
+                    <% end %>
+
+                  </div>
+
+
+      </div>
+      
+    <% end %>
+

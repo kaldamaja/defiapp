@@ -1,0 +1,24 @@
+<div class="" style="width: 28rem;margin:auto;">
+	<div class="card-body" style="padding:0rem;margin-top:20px;">
+
+			<h5>Kasutajad</h5>
+			<br>
+
+			<% @users = User.all %>
+				<% @users.each do |user| %>
+					
+				<% if user.avatar.attached? %>
+					<%= image_tag user.avatar, size: "30", class: "rounded-circle" %>
+				<% else %>
+					<%= image_tag 'user.jpg', size: "30", class: "rounded-circle" %>
+				<% end %>
+			
+				<%= link_to user.username, (user) %><br>
+				<hr>
+				
+
+			<% end %>
+
+
+	</div>
+</div>

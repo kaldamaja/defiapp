@@ -1,0 +1,26 @@
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+          <% if @post.image.attached? %>
+            <%= image_tag @post.image, size: "60" %>
+          <% end %>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.username %>
+</p>
+
+<% if @post.user == current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+
+<%= link_to 'Back', posts_path %>

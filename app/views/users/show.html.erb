@@ -1,0 +1,41 @@
+
+	<div class="" style="width: 28rem; margin:auto;margin-top:20px;">
+
+
+		<div class="user-profile">
+					<% if @user.avatar.attached? %>
+						<img><%= image_tag @user.avatar, class: "avatar" %></img>
+					<% else %>
+						<img><%= image_tag 'user.jpg', class: "avatar" %></img>
+					<% end %>
+
+					<div class="username">
+				    	<%= @user.username %>
+				    </div>
+
+
+		</div>
+
+	</div>
+
+
+	<div class="" style="width: 28rem; margin:auto;">
+		
+		<div class="card-body">
+				<div class="row" style="margin-left:0px;margin-right:0px;">
+					<% @user_posts.each do |post| %>
+						<div class="" style="width: 8.5rem;">
+								<div class="card-body">
+									<h5 class="card-title" style="font-size:15px;"><%= link_to post.title, post_path(post) %></h5>
+								</div>
+							<%= image_tag post.image, class: "card-img-bottom" %>
+						</div>
+					<% end %>
+				</div>
+
+		</div>
+
+	</div>
+
+	
+

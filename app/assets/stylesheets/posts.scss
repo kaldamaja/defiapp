@@ -1,0 +1,102 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.kast {
+	display:block;
+	width:100%;
+	margin:auto;
+}
+
+.post-user-image {
+	display:block;
+	width:100%;
+	margin-top:-30px;
+	text-align:center;
+}
+
+.post-user-image img {
+	border:2px solid white;
+}
+.post-image {
+	width:100%;
+	height: 170px;
+	object-fit:cover;
+}
+
+
+.post-title {
+	display:block;
+	width:100%;
+}
+
+.post-text {
+	display:block;
+	width:100%;
+}
+
+.post-username {
+	display:block;
+	width:100%;
+	text-align:center;
+	margin-top:15px;
+
+}
+
+.kaardi-sisu {
+	padding: 1rem;
+}
+
+.kuulutused {
+	margin:auto;
+	margin-bottom:25px;
+	text-align:center;
+	width:28rem;
+
+
+}
+
+.posti-nupud {
+	display:block;
+	padding: 1rem;
+}
+
+.navbar-login {
+	margin:auto;
+	margin-bottom:50px;
+	text-align:center;
+	width:28rem;
+
+}
+
+.home-page {
+	margin:auto;
+	margin-bottom:50px;
+	text-align:center;
+	width:50rem;
+}
+
+.alerts {
+	margin:auto;
+	margin-top:40px;
+	margin-bottom:10px;
+	text-align:center;
+	width:28rem;
+}
+
+.sign-up-page {
+	margin:auto;
+	margin-bottom:50px;
+	text-align:center;
+	width:28rem;
+}
+
+html, body {
+    height:100%;
+}
+
+.pealeht, body {
+	padding-top:0px;
+}
