@@ -53,22 +53,26 @@
               </div>
 
 
-                  <div class="posti-nupud ml-auto">
+                  <div class="posti-nupud">
 
-                    <%= link_to post, style: "text-decoration:none;" do %>
-                      <div class="vaata-nupp">
-                          <button type="button" class="btn btn-kuulutused">Vaata</button>
+                        <%= link_to post, style: "text-decoration:none;" do %>
+                          <div class="vaata-nupp">
+                              <button type="button" class="btn btn-kuulutused">Vaata</button>
+                          </div>
+                        <% end %>
+
+                      <div class="edit-nupp pull-right">
+
+                        <% if post.user == current_user %>
+                          <%= link_to 'Edit', edit_post_path(post) %>
+
+                          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                            <i class="fa fa-trash-o fa-lg" aria-hidden="true" style="color:black;"></i>
+                          <% end %>
+
+                        <% end %>
+
                       </div>
-                    <% end %>
-
-                    <% if post.user == current_user %>
-                      <%= link_to 'Edit', edit_post_path(post) %>
-
-                      <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                        <i class="fa fa-trash-o fa-lg" aria-hidden="true" style="color:black;"></i>
-                      <% end %>
-
-                    <% end %>
 
                   </div>
 
