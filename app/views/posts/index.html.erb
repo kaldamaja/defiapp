@@ -1,11 +1,7 @@
     <% if user_signed_in? %>
-      <%= link_to new_post_path, style: "text-decoration:none;" do %>
         <div class="kuulutused">
-          <button type="button" class="btn btn-kuulutused btn-lg btn-block">Lisa kuulutus</button>
+          <%= link_to 'Lisa kuulutus', new_post_path, class: "btn btn-kuulutused btn-lg btn-block", style: "font-weight:700" %>
         </div>
-      <% end %>
-
-
     <% end %>
 
 
