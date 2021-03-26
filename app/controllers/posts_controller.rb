@@ -1,20 +1,78 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show, :hot, :top, :newposts]
   before_action :post_omanik, only: [:edit, :update, :destroy]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('sticky desc, created_at desc').includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = @posts.includes(:comments, :likes)
+    @posts = @posts.includes(image_attachment: :blob)
+
+
+  end
+
+  def hot
+    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = @posts.hot.includes(:comments, :likes)
+    @posts = @posts.hot.includes(image_attachment: :blob)
+    render action: :index
+
+  end
+
+  def top
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = @posts.top.includes(:comments, :likes)
+    @posts = @posts.top.includes(image_attachment: :blob)
+    render action: :index
+  end
+
+  def newposts
+    @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = @posts.newposts.includes(:comments, :likes)
+    @posts = @posts.newposts.includes(image_attachment: :blob)
+    render action: :index
+  end
+
+  def sideposts
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @comment = Comment.new
+    @comments = if params[:comment]
+                  @post.comments.where(id: params[:comment])
+                else
+                  @post.comments.where(parent_id: nil)
+                end
+
+    @comments = @comments.order('created_at asc').paginate(page: params[:page], per_page: 2)
+
+  end
+
+
+  def search
+
+    @users = User.ransack(name_cont: params[:q]).result(distinct: true)
+    
+    respond_to do |format|
+      format.html {}
+      format.json {
+        @users = @users.limit(7)
+      }
+    end
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+  end
+
+  def hide_new_form
+
   end
 
   # GET /posts/1/edit
@@ -75,6 +133,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :image)
+      params.require(:post).permit(:title, :body, :image, :video)
     end
 end

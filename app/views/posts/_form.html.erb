@@ -1,4 +1,7 @@
+
 <%= form_with(model: post) do |form| %>
+
+
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,20 +15,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, 'Pealkiri' %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :body, 'Sisu' %>
+    <%= form.text_area :body, class: "form-control"  %>
   </div>
 
-  <%= form.label :image %><br>
+  <%= form.label :image, 'Pilt' %><br>
   <%= form.file_field :image %>
 
+  <%= form.label :video, 'video' %>
+  <%= form.file_field :video %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions" style="margin-top:10px;">
+    <%= form.submit "Postita", class: "btn btn-success" %>
   </div>
 <% end %>
+

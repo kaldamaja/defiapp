@@ -1,0 +1,82 @@
+<% if user_signed_in? %>
+
+  <aside class="sidebar">
+
+      <div class="side-inner">
+
+        <div class="side-profile" style="padding: 15px;">
+
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, size: "75", class: "rounded-circle", style: "object-fit:cover" %>
+          <% else %>
+            <%= image_tag 'user.jpg', size: "75", class: "rounded-circle", style: "object-fit:cover" %>
+          <% end %>
+
+          <h5 class="name" style="margin-top:15px;">
+            <%= link_to current_user, style: "color:#ececec;text-decoration:none;" do %>
+              <b><%= current_user.username %></b>
+            <% end %>
+          </h5>
+
+          <% if current_user.bio? %>
+            <span class="bio" style="color:#5a5a5a;font-size: 16px;">"<%= current_user.bio %>"</span>
+          <% end %>
+        </div>
+
+
+        <div class="side-menu" style="margin-top:5px;">
+
+            <%= link_to current_user, style: "text-decoration:none;color:#ececec;" do %>
+              <div class="side-menu-item">
+                <div class="side-menu-item-color"></div>
+                <div class="side-menu-inner-item">               
+                    <i class="fas fa-user mr-4" style="width:20px;text-align:center;"></i>
+                    Minu profiil
+                </div>
+              </div>
+            <% end %>
+            <%= link_to top_users_path, style: "text-decoration:none;color:#ececec;" do %>
+              <div class="side-menu-item">
+                <div class="side-menu-item-color"></div>
+                <div class="side-menu-inner-item">  
+                    <i class="fas fa-star mr-4" style="width:20px;text-align:center;"></i>
+                    TOP mängurid
+                </div>
+              </div>
+            <% end %>
+
+            <%= link_to edit_user_registration_path, style: "text-decoration:none;color:#ececec;" do %>
+              <div class="side-menu-item">
+                <div class="side-menu-item-color"></div>
+                <div class="side-menu-inner-item">
+                    <i class="fas fa-cog mr-4" style="width:20px;text-align:center;"></i>
+                    Seaded
+                </div>
+              </div>
+            <% end %>
+
+            <%= link_to destroy_user_session_path, method: :delete, style: "text-decoration:none;color:#ececec;" do %>
+              <div class="side-menu-item">
+                <div class="side-menu-item-color"></div>
+                <div class="side-menu-inner-item">
+                    <i class="fas fa-sign-out-alt mr-4" style="width:20px;text-align:center;"></i>
+                    Logi välja
+                </div>
+              </div>
+            <% end %>
+
+        </div>
+        <div class="side-menu-post-hot" style="padding-left:15px;padding-top:10px;border-top:1px solid #333333;margin-bottom:10px;">
+          <h6 style="margin-bottom:0px;">Täna kuum</h6>
+        </div>
+
+        <div id="side-top-post">
+
+        </div>
+
+
+
+      </div> 
+  </aside>
+
+<% end %>

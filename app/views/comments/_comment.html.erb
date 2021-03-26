@@ -1,0 +1,117 @@
+<% unless comment.parent_id || !comment.persisted? %>
+  <div id="comment-<%= comment.id %>">
+
+    <div class="comment">
+          <div class="comment-left" style="text-align:center;">
+
+            <div class="comment-user-img">
+              <% if comment.user.avatar.attached? %>
+                <%= image_tag comment.user.avatar, size: "30", class: "rounded-circle", style: "object-fit:cover" %>
+              <% else %>
+                <%= image_tag 'user.jpg', size: "30", class: "rounded-circle" %>
+              <% end %>
+
+              <% if comment.user.last_seen_at > 5.minutes.ago %>
+                    <div style="position:absolute;bottom:-2px;right: 0;">
+                      <%= image_tag 'aktiivne.svg', size: "13" %>
+                    </div>
+              <% end %>
+            </div>
+
+          </div>
+
+          <div class="comment-middle">
+            <div class="comment-middle-up">
+
+                  <div class="comment-username">
+                    
+                    <% if @post.user == comment.user %>
+                      <%= link_to comment.user.username, (user_path(@user) if @user = comment.user), style: "color:#ececec;" %>
+                    <% else %>
+                      <%= link_to comment.user.username, (user_path(@user) if @user = comment.user), style: "color:#ececec;" %>
+                    <% end %>
+
+                    <div class="comment-date">
+                      <%= time_ago_in_words(comment.created_at).gsub('about','') + ' tagasi' %>
+                    </div>
+
+                  </div>
+
+            </div>
+
+            <div class="comment-body-sector" style="display:block;">
+
+              <div class="comment-body" id="kommentaar" style="background-image:<%= 'linear-gradient(19deg, #21abfd 0%, #B721FF 100%)' if comment.user == current_user %>">
+                  <%= comment.body %>
+              </div>
+
+              <div class="comment-actions" style="display:flex;margin-top: 10px;font-size: 12px;font-weight: 500;">
+                  <div class="comment-vasta">
+                    <% if user_signed_in? %>
+                      <%= link_to 'Vasta', new_post_comment_path(@post, parent_id: comment.id), remote: true, style: "color:#ececec;" %>
+                    <% end %>
+                  </div>
+
+
+                <div class="comment-kustuta" style="display:flex;">
+                  <% if comment.user == current_user || @post.user == current_user %>
+                    <div class="comment-actions-triip" style="margin-left:5px; margin-right:5px;">|</div>
+                      <%= link_to "Kustuta", post_comment_path(@post, comment), method: :delete, data: {confirm: 'Kas olete kindel?'}, remote: true, style: "color:#ececec;" %>
+                  <% end %>
+                </div>
+                
+              </div>
+
+            </div>
+
+
+                
+          </div>
+
+
+            <div class="comment-right" style="display:inline-block;text-align:center;">
+              <div class="comment-right-up">
+
+                    <% if user_signed_in? %>
+
+                      <div class="comment-heart heart-<%= comment.id %> <%= 'active' if comment.hearts.find { |heart| heart.user_id == current_user.id} %>" data-id="<%= comment.id %>">
+                        <%= embedded_svg 'heart.svg', class: "comment-heart-img" %>
+                      </div>
+
+                    <% else %>
+                      <%= link_to new_user_session_path do %>
+                        <div class="comment-heart">
+                          <%= embedded_svg 'heart.svg', class: "comment-heart-img" %>
+                        </div>
+                      <% end %>
+                    <% end %>
+
+
+
+              </div>
+
+                    <div id="comment-<%= comment.id %>-hearts" style="margin-top:10px;font-size: 11px;">
+                      <%= comment.hearts.size %>
+                    </div>
+
+            </div>
+
+
+    </div>
+
+    <div id="reply-form-<%= comment.id %>"></div>
+
+    <div id="comment_pane_reply-<%= comment.id %>">
+      <% if comment.replies.any? %>
+          <% comment.replies.includes(:hearts).order("created_at ASC").each do |reply| %> 
+            <%= render partial: 'comments/reply', locals: { reply: reply } %>
+          <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+    
+
+<% end %>
+

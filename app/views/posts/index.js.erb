@@ -1,0 +1,21 @@
+﻿$('#posts').append('<%= j render @posts %>');
+
+<% if current_page?(posts_path) %>
+	$('#load-more-posts').attr('href', '<%= posts_path page: @posts.next_page %>');
+<% end %>
+
+<% if current_page?(hot_posts_path) %>
+	$('#load-more-posts').attr('href', '<%= hot_posts_path page: @posts.next_page %>');
+<% end %>
+
+<% if current_page?(top_posts_path) %>
+	$('#load-more-posts').attr('href', '<%= top_posts_path page: @posts.next_page %>');
+<% end %>
+
+
+<% if !@posts.next_page %>
+
+	$('#load-more-button').remove();
+	$('#postituste-lopp').show();
+
+<% end %>

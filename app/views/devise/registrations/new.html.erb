@@ -1,6 +1,6 @@
     
 <div class="sign-up-page">
-    <h2>Sign up</h2>
+    <h2>Loo konto</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -29,8 +29,8 @@
       </div>
       <br>
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-kuulutused", style: "width:100px;" %>
-        <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-kuulutused", style: "width:100px;" %><br />
+        <%= f.submit "Sign up", class: "btn btn-success", style: "width:100px;" %>
+        <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-info", style: "width:100px;" %><br />
       </div>
     <% end %>
 

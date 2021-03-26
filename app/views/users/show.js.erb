@@ -1,0 +1,8 @@
+﻿$('#user-page-posts').append('<%= j render @posts %>');
+$('#load-more-user-posts').attr('href', '<%= user_path page: @posts.next_page %>');
+
+
+<% if !@posts.next_page %>
+	$('.load-more-user-posts-button').remove();
+	$('#postituste-lopp').show();
+<% end %>

@@ -1,41 +1,92 @@
 
-	<div class="" style="width: 28rem; margin:auto;margin-top:20px;">
+<div class="user-page-content" style="margin-top:10px;border-radius:15px;">
+	<div class="user-page-img">
+		<% if @user.avatar.attached? %>
+			<%= image_tag @user.avatar, size: "120", class: "rounded-circle", style: "object-fit:cover"  %>
+		<% else %>
+			<%= image_tag 'user.jpg', size: "120", class: "rounded-circle", style: "object-fit:cover"  %>
+		<% end %>
+	</div>
 
+	<br>
 
-		<div class="user-profile">
-					<% if @user.avatar.attached? %>
-						<img><%= image_tag @user.avatar, class: "avatar" %></img>
-					<% else %>
-						<img><%= image_tag 'user.jpg', class: "avatar" %></img>
-					<% end %>
-
-					<div class="username">
-				    	<%= @user.username %>
-				    </div>
-
-
-		</div>
-
+	<div class="user-page-name">
+		<h5><b><%= @user.username %></b></h5>
 	</div>
 
 
-	<div class="" style="width: 28rem; margin:auto;">
-		
-		<div class="card-body">
-				<div class="row" style="margin-left:0px;margin-right:0px;">
-					<% @user_posts.each do |post| %>
-						<div class="" style="width: 8.5rem;">
-								<div class="card-body">
-									<h5 class="card-title" style="font-size:15px;"><%= link_to post.title, post_path(post) %></h5>
-								</div>
-							<%= image_tag post.image, class: "card-img-bottom" %>
-						</div>
-					<% end %>
+	<div class="user-page-bio" style="padding:0 20px 20px 20px;text-align: center;">
+		<%= @user.bio %>
+	</div>
+
+	<% if user_signed_in? %>
+		<div class="user-page-button" style="text-align:center;">
+			<% if @user == current_user %>
+				<%= link_to "Muuda", edit_user_registration_path, class: "btn btn-info", style: "color:white;" %>
+			<% else %>
+				<%= render 'follow_form' %>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div class="user-created-at" style="display:flex;justify-content: center;margin: 20px 0 10px 0;">
+		<b>Liitus <%= time_ago_in_words(@user.created_at).gsub('about','') + ' tagasi' %></b>
+	</div>
+
+		<div class="user-page-actions" style="margin-top:30px;margin-bottom:30px;">
+			<div class="user-page-actions-item">
+				<div class="user-page-actions-item-number" id="followers">
+					<%= @user.followers.count %>
 				</div>
+				<div class="user-page-actions-text">
+					<%= "Follower".pluralize (@user.followers.count) %>
+				</div>
+			</div>
 
+			<div class="user-page-actions-item" style="text-align:center;">
+				<div class="user-page-actions-item-number">
+					<%= @user.received_likes %>
+				</div>
+				<div class="user-page-actions-text">
+					<%= "Like".pluralize (@user.received_likes) %>
+				</div>
+			</div>
+
+			<div class="user-page-actions-item" style="text-align:center;">
+				<div class="user-page-actions-item-number">
+					<%= @user.posts.size %>
+				</div>
+				<div class="user-page-actions-text">
+					<%= "Post".pluralize (@user.posts.size) %>
+				</div>
+			</div>
 		</div>
+
+
+	<div id="user-page-posts">
+
+
+    		<%= render @posts %>
+
 
 	</div>
 
-	
 
+
+			<div class="load-more-user-posts-button" style="padding-bottom:50px;margin-top:10px;">
+		      <% if @posts.next_page %>
+		          <%= link_to user_path(:page => @posts.next_page),data: { disable_with: "Laen..." }, class: "btn btn-load-more", id: "load-more-user-posts", remote: true do %>
+		            Laadi postitusi juurde
+
+		          <% end %>
+
+		      <% end %>
+		    </div>
+
+			<div id="postituste-lopp">
+			  <button class="btn btn-lopp">Oled jõudnud lõppu!</button>
+			</div>
+
+ 
+
+</div>

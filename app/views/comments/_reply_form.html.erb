@@ -1,0 +1,13 @@
+<div class="card ml-5">
+    <div class="comment-area">
+      <%= form_with model: [@post, @comment], local: false do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <div class="form-group">
+          <%= f.text_area :body, placeholder: "Kirjuta vastus...", class: 'form-control', id: "comment_body_reply" %>
+        </div>
+          <div class="send-comment icon">
+            <%= f.submit "Submit", :type => :image, :src => image_path("send-comment.svg"), class: "send-comment-img", style: "outline:none;" %>
+          </div>
+      <% end %>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div id="comment-<%= reply.id %>">
+  <div class="ml-5">
+      <div class="reply">
+          <div class="comment-left">
+            <div class="comment-user-img">
+              <% if reply.user.avatar.attached? %>
+                <%= image_tag reply.user.avatar, size: "25", class: "rounded-circle", style: "object-fit:cover" %>
+              <% else %>
+                <%= image_tag 'user.jpg', size: "25", class: "rounded-circle" %>
+              <% end %>
+
+                <% if reply.user.last_seen_at > 5.minutes.ago %>
+                  <div style="position:absolute;bottom:-2px;right: 0;">
+                    <%= image_tag 'aktiivne.svg', size: "11" %>
+                  </div>
+                <% end %>
+
+            </div>
+          </div>
+
+
+            <div class="comment-middle">
+              <div class="comment-middle-up">
+
+                <div class="comment-username" style="font-size:13px;">
+                    <% if @post.user == reply.user %>
+                      <%= link_to reply.user.username, (user_path(@user) if @user = reply.user), style: "color:#ececec;" %>
+                    <% else %>
+                      <%= link_to reply.user.username, (user_path(@user) if @user = reply.user), style: "color:#ececec;" %>
+                    <% end %>
+
+
+                  <div class="comment-date" style="font-size:10px;">
+                    <%= time_ago_in_words(reply.created_at).gsub('about','') + ' tagasi' %>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="comment-body" style="background-image:<%= 'linear-gradient(19deg, #21abfd 0%, #B721FF 100%)' if reply.user == current_user %>">
+                <%= reply.body %>
+              </div>
+
+
+                <div class="comment-kustuta" style="margin-top:10px;font-size: 12px;font-weight: 500;">
+                  <% if reply.user == current_user || @post.user == current_user %>
+                    <%= link_to "Kustuta", post_comment_path(@post, reply), method: :delete, data: {confirm: 'Kas olete kindel?'}, remote: true, style: "color:#ececec;" %>
+                  <% end %>
+                </div>
+
+            </div>
+
+            <div class="comment-right" style="display:inline-block;text-align: center;">
+              <div class="comment-right-up">
+
+                  <% if user_signed_in? %>
+
+                    <div class="comment-heart heart-<%= reply.id %> <%= 'active' if reply.hearts.find { |heart| heart.user_id == current_user.id} %>" data-id="<%= reply.id %>">
+                      <%= embedded_svg 'heart.svg', class: "comment-heart-img" %>
+                    </div>
+
+                  <% else %>
+                      <%= link_to new_user_session_path do %>
+                        <div class="comment-heart">
+                          <%= embedded_svg 'heart.svg', class: "comment-heart-img" %>
+                        </div>
+                      <% end %>
+                  <% end %>
+
+
+              </div>
+
+                    <div id="comment-<%= reply.id %>-hearts" style="margin-top:10px;font-size: 11px;">
+                      <%= reply.hearts.size %>
+                    </div>
+
+            </div>
+
+
+      </div>
+  </div>
+</div>

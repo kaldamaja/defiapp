@@ -1,0 +1,3 @@
+$('#comment-<%= @comment.id %>').html('');
+$('.post-comment-number').html('<%= escape_javascript(@post.comments.size) %>');
+

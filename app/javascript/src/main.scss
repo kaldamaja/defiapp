@@ -1,0 +1,41 @@
+#main {
+	margin: 0 auto;
+	max-width:38rem;
+	height: 100%;
+}
+
+img {
+	user-drag: none; 
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.btn-load-more {
+	background: linear-gradient(90deg, #6bb0f8 0%, #fd4ffe 100%) !important;
+	color: #fff;
+	box-shadow:none !important;
+	outline:none;
+	width:100%;
+	transition: opacity ease 0.4s;
+}
+
+.btn-load-more:hover {
+	opacity: 0.75;
+	color: #fff;
+}
+
+.btn-lopp {
+	background-color:#31af73;
+	border-color: #31af73;
+	color: #fff;
+	width:100%;
+	box-shadow:none !important;
+}
+
+#postituste-lopp {
+	display:none;
+	padding-bottom:30px;
+}

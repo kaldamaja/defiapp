@@ -1,0 +1,9 @@
+<% if @comment.parent_id == nil %>
+	$('#comment_pane').prepend("<%= j render @comment %>");
+	$('#comment_body').val('');
+<% else %>
+	$('#comment_pane_reply-<%= @comment.parent_id %>').prepend("<%= j render partial: 'comments/reply', locals: { reply: @comment } %>");
+	$('#comment_body_reply').val('');
+<% end %>
+
+$('.post-comment-number').html('<%= escape_javascript(@post.comments.size) %>');

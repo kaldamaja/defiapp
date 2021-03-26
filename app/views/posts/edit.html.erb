@@ -1,6 +1,44 @@
-<h1>Editing Post</h1>
+<h1>Muuda</h1>
 
-<%= render 'form', post: @post %>
+<%= form_with(model: @post) do |form| %>
+
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, 'Pealkiri' %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, 'Sisu' %>
+    <%= form.text_area :body, class: "form-control"  %>
+  </div>
+
+  <%= form.label :image, '' %><br>
+  <div class="btn">
+  <%= form.file_field :image %>
+  </div>
+<br>
+  <%= form.label :video, 'video' %>
+  <%= form.file_field :video %>
+
+  <div class="actions">
+    <div class="btn">
+    <%= form.submit %>
+    </div>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>

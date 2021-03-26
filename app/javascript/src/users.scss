@@ -1,0 +1,66 @@
+.user-page-content {
+	max-width: 35rem;
+}
+
+.user-page-img {
+	display: flex;
+  	justify-content: center;
+}
+
+.user-page-img img {
+}
+
+.user-page-name {
+	display: flex;
+  	justify-content: center;
+
+}
+
+.user-page-actions {
+	display:flex;
+	justify-content: center;
+}
+
+.user-page-actions-item {
+	text-align:center;
+	width:85px;
+}
+
+.user-page-actions-item-number {
+	font-weight:700;
+}
+
+
+.user-page-actions-text {
+	color: #d4d4d4;
+}
+
+.user-page-post-image {
+	width:130px;
+	height:130px;
+	object-fit:cover;
+}
+
+
+.rida-terve {
+	
+}
+
+.rida-terve:hover {
+	background-color:#3a3a3a !important;
+}
+
+.top1 {
+	background-color: #ef426f !important;
+}
+
+.users-heart-img {
+    fill: #ececec;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+
+

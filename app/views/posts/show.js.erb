@@ -1,0 +1,7 @@
+﻿$('#comment_pane').append('<%= j render @comments %>');
+$('#load-more-comments').attr('href', '<%= post_path page: @comments.next_page %>');
+
+
+<% if !@comments.next_page %>
+$('#load-more-comments').remove();
+<% end %>

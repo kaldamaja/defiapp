@@ -1,0 +1,47 @@
+<div class="users-top-page" style="height: 100vh;">
+  	<div class="top" style="display:block;text-align:center;">
+  		<h4 style="font-weight: 800;">TOP</h4>
+  	</div>
+  		<div class="rida-up" style="display:flex;align-items: center;background-color: #2b2b2b;padding: 15px;border-radius:10px;margin-bottom:15px;margin-top:20px;">
+
+  			<div class="rida-number" style="width:35px;text-align: center;margin-right:20px;font-size: 18px;">
+	    		<b>#</b>
+	    	</div>
+
+	    	<div class="rida-kasutaja" style="margin-right:10px;">
+				<b>Mängur</b>
+	      	</div>
+
+	      	<div class="rida-posts ml-auto" style="width:35px;text-align: center;">
+	      		<%= embedded_svg 'heart.svg', class: "users-heart-img" %>
+	      	</div>
+	    </div>
+
+
+
+  	<% @users.each.with_index(1) do |user, index| %>
+  		<div class="rida-terve <%= 'top1' if index == 1 %>" style="display:flex;align-items: center;background-color: #2b2b2b;padding: 15px;border-radius:10px;margin-bottom:15px;">
+
+  			<div class="rida-number" style="width:35px;text-align: center;margin-right:20px;">
+	    		<b><%= index %></b>
+	    	</div>
+
+	    	<div class="rida-pilt" style="margin-right:10px;">
+			    <% if user.avatar.attached? %>
+		          <%= image_tag user.avatar, size: "30", class: "rounded-circle", style: "object-fit:cover" %>
+		        <% else %>
+		          <%= image_tag 'user.jpg', size: "30", class: "rounded-circle", style: "object-fit:cover" %>
+		        <% end %>
+		    </div>
+
+	    	<div class="rida-nimi">
+	      		<b><%= link_to user.username, (user), style: "color:#ececec;" %></b>
+	      	</div>
+
+	      	<div class="rida-posts ml-auto" style="min-width:35px;text-align: center;">
+	      		<b><%= user.received_likes %></b>
+	      	</div>
+	    </div>
+
+	<% end %>
+</div>

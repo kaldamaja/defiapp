@@ -22,15 +22,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap', '~> 4.0'
-
 gem "font-awesome-rails"
+gem 'will_paginate', '~> 3.3'
+gem 'ransack', '~> 2.4', '>= 2.4.1'
 
-gem 'jquery-rails'
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
-gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

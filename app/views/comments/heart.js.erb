@@ -1,0 +1,6 @@
+﻿<% if @success == true %>
+$(".heart-<%= @comment_id %>").addClass("active");
+<% else %>
+$(".heart-<%= @comment_id %>").removeClass("active");
+<% end %>
+$("#comment-<%= @comment_id %>-hearts").html('<%= escape_javascript(@comment_hearts) %>');
