@@ -3,40 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.post-upper {
-	display:flex;
-	height:100%;
-}
-
-.post-left {
-	display:inline-block;
-	height:100%;
-}
-
-.post-middle {
-	display:inline-block;
-	margin-left:7px;
-}
-
-.post-right {
-	display:inline-block;
-}
-
-.post-user-image {
-	display:inline-block;
-	position:relative;
-}
-
-.post-user-image img {
-}
-
-.post-username {
-	display:block;
-	font-weight:700;
-	font-size:15px;
-	margin-bottom:3px;
-}
-
 .admin img {
 	margin-bottom:2px;
 }
@@ -49,8 +15,7 @@
 
 .post-image {
 	height: 200px;
-	max-width:100%;
-	border-radius: 15px;
+	border-radius: 15px 0 0 15px;
 	object-fit:cover;
 	cursor:pointer;
 	-webkit-transition: opacity 0.4s ease-in-out;
@@ -161,7 +126,6 @@
 	border-radius:25px;
 	transition: background 0.4s ease;
 	cursor:pointer;
-	background-color:#383838;
 
 }
 
@@ -383,6 +347,22 @@
       }
     }
   }
+}
+
+#post-id {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border-radius:15px;
+}
+
+@media (max-width: 576px) {
+  #post-id {
+  	box-shadow:none;
+  }
+  .post-image {
+  	width:100%;
+  	border-radius:0px;
+  }
+
 }
 
 

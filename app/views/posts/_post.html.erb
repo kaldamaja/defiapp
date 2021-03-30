@@ -1,62 +1,61 @@
 
-  <div class="card" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;">
-        <div class="row no-gutters">
-            <div class="col-auto">
-                    <% if post.image.attached? %>
-      <%= image_tag post.image, class: "post-image", id: "image-#{dom_id(post)}",  data: { target: "#myModal-#{dom_id(post)}", toggle: "modal"} %>
-    <% elsif post.video.attached? %>
-      <%= video_tag (url_for(post.video)), :controls =>true, class: "post-image", style: "outline:none;" %>
-    <% else %>
-    <% end %>
-            </div>
-            <div class="col" style="padding:10px;">
-                <div class="card-block px-2" style="max-height: 150px;overflow: hidden;">
+  <div class="card" id="post-id">
+        <div class="row">
+
+                <% if post.image.attached? %>
+                  <%= image_tag post.image, class: "post-image", id: "image-#{dom_id(post)}",  data: { target: "#myModal-#{dom_id(post)}", toggle: "modal"} %>
+                <% end %>
+
+            <div class="col" id="post-body" style="padding:10px;">
+                <div class="card-block px-2">
                     <h4 class="card-title" style="font-weight:600;letter-spacing: 0px;"><%= link_to post.title, (post), style: "color:#333;" %></h4>
                     <p class="card-text"><%= post.body %></p>
                 </div>
 
-                <div class="post-nupud" style="position:absolute; bottom:10px;">
+                  <div class="" style="margin-top:40px;">
+                    <div class="post-nupud" style="position:absolute; bottom:10px;">
 
-                  <% if user_signed_in? %>
-                    <div class="post-heart like-<%= post.id %> <%= 'active' if post.likes.find { |like| like.user_id == current_user.id} %>" data-id="<%= post.id %>">
-                      <%= embedded_svg 'heart.svg', class: "heart-img" %>
-                    </div>
-                  <% else %>
-                    <%= link_to new_user_session_path do %>
-                      <div class="post-heart-unlogged">
-                        <%= embedded_svg 'heart.svg', class: "heart-img" %>
-                      </div>
-                    <% end %>
-                  <% end %>
-
-
-                      <div class="post-heart-number" id="post-<%= post.id %>-likes">
-                        <%= post.likes.size %>
-
-                      </div>
-
-                    <% if user_signed_in? %>
-                      <%= link_to post_path(post) do %>
-                        <div class="post-comment <%= 'active' if post.comments.find { |comment| comment.user_id == current_user.id} %>">
-                          <%= embedded_svg 'comment.svg', class: "comment-img" %>
+                      <% if user_signed_in? %>
+                        <div class="post-heart like-<%= post.id %> <%= 'active' if post.likes.find { |like| like.user_id == current_user.id} %>" data-id="<%= post.id %>">
+                          <%= embedded_svg 'heart.svg', class: "heart-img" %>
                         </div>
+                      <% else %>
+                        <%= link_to new_user_session_path do %>
+                          <div class="post-heart-unlogged">
+                            <%= embedded_svg 'heart.svg', class: "heart-img" %>
+                          </div>
+                        <% end %>
                       <% end %>
-                    <% else %>
-                      <%= link_to new_user_session_path do %>
-                        <div class="post-comment">
-                          <%= embedded_svg 'comment.svg', class: "comment-img" %>
+
+
+                          <div class="post-heart-number" id="post-<%= post.id %>-likes">
+                            <%= post.likes.size %>
+
+                          </div>
+
+                        <% if user_signed_in? %>
+                          <%= link_to post_path(post) do %>
+                            <div class="post-comment <%= 'active' if post.comments.find { |comment| comment.user_id == current_user.id} %>">
+                              <%= embedded_svg 'comment.svg', class: "comment-img" %>
+                            </div>
+                          <% end %>
+                        <% else %>
+                          <%= link_to new_user_session_path do %>
+                            <div class="post-comment">
+                              <%= embedded_svg 'comment.svg', class: "comment-img" %>
+                            </div>
+                          <% end %>
+                        <% end %>
+
+                        <div class="post-comment-number">
+                          <%= post.comments.size %>
                         </div>
-                      <% end %>
-                    <% end %>
 
-                    <div class="post-comment-number">
-                      <%= post.comments.size %>
-                    </div>
-
-                    <div class="ml-auto" style="color:#ff8200;">
-                      <% if post.sticky? %>
-                        Promoted
-                      <% end %>
+                        <div class="ml-auto" style="color:#ff8200;">
+                          <% if post.sticky? %>
+                            Promoted
+                          <% end %>
+                        </div>
                     </div>
                   </div>
             </div>
