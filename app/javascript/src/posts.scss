@@ -15,6 +15,7 @@
 
 .post-image {
 	height: 200px;
+	width:200px;
 	border-radius: 15px 0 0 15px;
 	object-fit:cover;
 	cursor:pointer;
@@ -130,7 +131,7 @@
 }
 
 .post-heart-unlogged:hover {
-	background-color:#e0245e;
+	background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);
 }
 
 .post-heart-unlogged:hover .heart-img {
@@ -149,7 +150,7 @@
 }
 
 .post-heart.active {
-	background-color:#e0245e;
+	background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);
 }
 
 .post-heart.active .heart-img {
@@ -161,7 +162,7 @@
 }
 
 .post-heart:hover {
-	background-color:#e0245e;
+	background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);
 }
 
 .post-heart:hover .heart-img {
@@ -357,6 +358,8 @@
 @media (max-width: 576px) {
   #post-id {
   	box-shadow:none;
+  	margin-left: -15px !important;
+  	margin-right: -15px !important;
   }
   .post-image {
   	width:100%;

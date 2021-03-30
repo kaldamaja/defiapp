@@ -42,30 +42,30 @@
 <div id="load-more-button" style="padding-bottom:30px;">
   <% if current_page?(root_path) || current_page?(posts_path) %>
     <% if @posts.next_page %>
-          <%= link_to posts_path(:page => @posts.next_page),data: { disable_with: "Laen..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Laadi rohkem postitusi  (<%= @posts.size %>)
+          <%= link_to posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+            Load More   (<%= @posts.size %>)
           <% end %>
     <% end %>
   <% end %>
 
   <% if current_page?(hot_posts_path) %>
     <% if @posts.next_page %>
-          <%= link_to hot_posts_path(:page => @posts.next_page),data: { disable_with: "Laen..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Laadi rohkem postitusi  (<%= @posts.size %>)
+          <%= link_to hot_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+            Load More   (<%= @posts.size %>)
           <% end %>
     <% end %>
   <% end %>
 
   <% if current_page?(top_posts_path) %>
     <% if @posts.next_page %>
-          <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Laen..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Laadi postitusi juurde  <%= @posts.total_entries %>
+          <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+            Load More  <%= @posts.total_entries %>
           <% end %>
     <% end %>
   <% end %>
 </div>
 
 <div id="postituste-lopp">
-  <button class="btn btn-lopp">Oled jõudnud lõppu!</button>
+  <button class="btn btn-lopp">You have reached bottom!</button>
 </div>
 
