@@ -1,0 +1,60 @@
+<nav class="navbar fixed-top navbar-dark bg-light">
+    <div class="nav-content">
+
+      <% if user_signed_in? %>
+
+          <div class="nav-user">
+
+            <div class="navbar-user-image">
+              <% if current_user.avatar.attached? %>
+                            <%= image_tag current_user.avatar, size: "30", class: "rounded-circle", style: "object-fit:cover" %>
+                          <% else %>
+                            <%= image_tag 'user.jpg', size: "25", class: "rounded-circle" %>
+                          <% end %>
+                        </div>
+
+            <div class="navbar-username">
+              <%= link_to current_user, style: "color:#ececec;" do %>
+                <b><%= current_user.username %></b>
+              <% end %>
+            </div>
+
+                    </div>
+
+
+
+
+            <div class="search">
+              <%= form_with url: search_path, local: true, method: :get, html: { class: "form-inline" } do |form| %>
+                  <%= form.text_field :q, placeholder: "Otsing...", data: { behavior: "autocomplete" }, class: "form-control", style: "height:35px;" %>
+              <% end %>
+            </div>
+
+      <% else %>
+
+
+              <%= link_to "Log in", new_user_session_path, class: "navbar-button navbar-in", style: "text-decoration:none;" %>
+              <%= link_to "Sign up", new_user_registration_path, class: "navbar-button navbar-new", style: "text-decoration:none;" %>
+
+
+      <% end %>
+
+          <a class="mr-auto" href="/" style="color: #333;text-decoration: none;">
+            <h4 style="font-weight: 700;">UniRcoket</h4>
+          </a>
+
+
+        <% if user_signed_in? %>
+          <%= link_to sideposts_posts_path, remote: true, id: "side-posts" do %>
+            <div class="toggle sidebar js-menu-toggle" style="margin-right:20px;">
+              <div class="burger-icon">
+                <%= image_tag 'burger.svg', size: "20" %>
+              </div>
+              </div>
+          <% end %>
+          <% end %>
+    </div>
+
+  </nav>
+
+

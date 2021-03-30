@@ -30,46 +30,4 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-        datetime:
-            distance_in_words:
-              about_x_hours:
-                one: about 1 tund
-                other: about %{count} tundi
-              about_x_months:
-                one: about 1 kuu
-                other: about %{count} kuud
-              about_x_years:
-                one: about 1 aasta
-                other: about %{count} aastat
-              almost_x_years:
-                one: almost 1 aasta
-                other: almost %{count} aastat
-              half_a_minute: pool minutit
-              less_than_x_minutes:
-                one: vähem kui minut
-                other: vähem kui %{count} minutit
-              less_than_x_seconds:
-                one: less than 1 second
-                other: less than %{count} seconds
-              over_x_years:
-                one: over 1 year
-                other: over %{count} years
-              x_days:
-                one: 1 päev
-                other: "%{count} päeva"
-              x_minutes:
-                one: 1 minut
-                other: "%{count} minutit"
-              x_months:
-                one: 1 kuu
-                other: "%{count} kuud"
-              x_seconds:
-                one: 1 sekund
-                other: "%{count} sekundit"
-            prompts:
-              day: Day
-              hour: Hour
-              minute: Minute
-              month: Month
-              second: Seconds
-              year: Year
+  hello: "Hello world"
