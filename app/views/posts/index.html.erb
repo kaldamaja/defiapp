@@ -42,9 +42,9 @@
       </div>
 
 <div id="load-more-button" style="padding-bottom:30px;">
-  <% if current_page?(root_path) || current_page?(posts_path) %>
+  <% if current_page?(root_path) %>
     <% if @posts.next_page %>
-          <%= link_to posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+          <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
             Load More   (<%= @posts.size %>)
           <% end %>
     <% end %>
@@ -58,10 +58,18 @@
     <% end %>
   <% end %>
 
+  <% if current_page?(newposts_posts_path) %>
+    <% if @posts.next_page %>
+          <%= link_to newposts_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+            Load More (<%= @posts.size %>)
+          <% end %>
+    <% end %>
+  <% end %>
+
   <% if current_page?(top_posts_path) %>
     <% if @posts.next_page %>
           <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Load More  <%= @posts.total_entries %>
+            Load More  (<%= @posts.size %>)
           <% end %>
     <% end %>
   <% end %>
