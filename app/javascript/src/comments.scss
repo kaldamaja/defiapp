@@ -117,7 +117,8 @@
 .comment-body {
 	margin-top:10px;
 	display:inline-block;
-	background-color:#2b2b2b;
+	background-color:#fbb3d7;
+	color: white !important;
 	padding:10px;
 	max-width:90%;
 	border-radius:3px 15px 15px 15px;
@@ -174,19 +175,16 @@ a.morelink {
 }
 
 .comment-heart.active {
-	background-color:#e0245e;
+	background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);
 }
 
 .comment-heart.active .comment-heart-img {
 	fill:#ececec;
 }
 
-.comment-heart-img.active {
-	fill: #ececec;
-}
 
 .comment-heart:hover {
-	background-color:#e0245e;
+	background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);
 }
 
 .comment-heart:hover .comment-heart-img {
@@ -194,7 +192,7 @@ a.morelink {
 }
 
 .comment-heart-img  {
-	fill:#ececec;
+	fill:#333;
 	width:15px;
 	height:15px;
 	margin: auto;

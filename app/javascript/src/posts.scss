@@ -65,15 +65,15 @@
   width: 15px;
   height: 15px;
   margin:auto;
-  fill:#ececec !important;
+  fill:#333 !important;
 }
 
 .post-dots:hover .post-dots-img {
-	fill:#e0235e !important;
+	fill:#037dd6 !important;
 }
 
 .post-dots:hover {
-	background-color:#404040;
+
 }
 
 #post-kustuta:hover {
@@ -98,18 +98,18 @@
 }
 
 .post-back:hover {
-	background-color:#404040;
+
 }
 
 .post-back:hover .back-img {
-	fill: #e0235e !important;
+	fill: #037dd6 !important;
 }
 
 .back-img  {
 	width:16px;
 	height:16px;
 	margin:auto;
-	fill: #ececec !important;
+	fill: #333 !important;
 }
 
 .post-nupud {
@@ -122,8 +122,8 @@
 .post-heart-unlogged {
 	display: grid;
 	text-align:center;
-	height:35px;
-	width:35px;
+	height:30px;
+	width:30px;
 	border-radius:25px;
 	transition: background 0.4s ease;
 	cursor:pointer;
@@ -171,8 +171,8 @@
 
 .heart-img  {
 	fill:#333;
-	width:18px;
-	height:18px;
+	width:16px;
+	height:16px;
 	margin: auto;
 	vertical-align: middle;
 }
@@ -181,7 +181,7 @@
 	display:inline-block;
 	margin-left: 5px;
 	margin-right:15px;
-	font-size:14px;
+	font-size:13px;
 	font-weight:500;
 	color: #333;
 }
@@ -202,13 +202,13 @@
 }
 
 .post-comment:hover .comment-img {
-	fill: #037dd6;
+	fill: #ffdb7e;
 }
 
 .comment-img  {
 	fill:#333;
-	width:18px;
-	height:18px;
+	width:16px;
+	height:16px;
 	margin:auto;
 }
 
@@ -216,7 +216,7 @@
 .post-comment-number {
 	display:inline-block;
 	margin-left:5px;
-	font-size:14px;
+	font-size:13px;
 	font-weight:500;
 	color: #333;
 }

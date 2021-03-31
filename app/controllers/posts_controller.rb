@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.order('sticky desc, created_at desc').includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
     @posts = @posts.includes(:comments, :likes)
     @posts = @posts.includes(image_attachment: :blob)
 

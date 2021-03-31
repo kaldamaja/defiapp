@@ -1,8 +1,10 @@
+        <% if user_signed_in? %>
           <div id="add-crypto" style="display:inline-block;width:100%">
             <%= link_to new_post_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #037dd6;letter-spacing: 1px;margin:auto;width:100%;" do %>
             Add Cryptocurrency
             <% end %>
           </div>
+        <% end %>
 
 <div class="posts-index-actions">
   <div class="posts-actions">
@@ -23,7 +25,7 @@
     </div>
 
     <div class="col">
-      <%= link_to posts_path, :class => current_page?(posts_path) ? "posts-active" : ""  do %>
+      <%= link_to newposts_posts_path, :class => current_page?(newposts_posts_path) ? "posts-active" : ""  do %>
         <div class="newposts">
           <b>New</b>
         </div>

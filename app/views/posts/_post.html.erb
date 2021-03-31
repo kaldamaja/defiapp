@@ -10,7 +10,7 @@
                 <div class="card-block px-2">
                     <h4 class="card-title" style="font-weight:600;letter-spacing: 0px;margin-bottom:0.3rem;"><%= link_to post.title, (post), style: "color:#333;" %></h4>
                     <div class="post-date">
-                      <%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %>
+                      Listed <%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %>
                     </div>
                     <p class="card-text" style="margin-top:5px;"><%= post.body %></p>
                 </div>
