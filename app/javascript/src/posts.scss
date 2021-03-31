@@ -144,7 +144,7 @@
 	height:30px;
 	width:30px;
 	border-radius:25px;
-	transition: background 0.4s ease;
+	transition: background 0.9s ease;
 	cursor:pointer;
 
 }
@@ -355,6 +355,10 @@
 	border-radius:15px;
 }
 
+.post-image-show img {
+	border-radius:10px;
+}
+
 @media (max-width: 576px) {
   #post-id {
   	box-shadow:none;
@@ -363,6 +367,13 @@
   }
   .post-image {
   	width:100%;
+  	border-radius:0px;
+  }
+  .post-image-show {
+    margin-left: -15px !important;
+  	margin-right: -15px !important;
+  }
+  .post-image-show img {
   	border-radius:0px;
   }
 

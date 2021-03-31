@@ -1969,8 +1969,8 @@ pre code {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #ececec;
-  background-color: #383838;
+  color: #a7a7a7;
+  background-color: #f3f3f3;
   background-clip: padding-box;
   border: none;
   border-radius: 100px;
@@ -1983,34 +1983,34 @@ pre code {
 }
 
 .form-control:focus {
-  color: #ececec;
-  background-color: #404040;
+  color: #a7a7a7;
+  background-color: #f3f3f3;
   border-color: #80bdff;
   outline: 0;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #ececec;
+  color: #a7a7a7;
   opacity: 1;
 }
 
 .form-control::-moz-placeholder {
-  color: #ececec;
+  color: #a7a7a7;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #ececec;
+  color: #a7a7a7;
   opacity: 1;
 }
 
 .form-control::-ms-input-placeholder {
-  color: #ececec;
+  color: #a7a7a7;
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: #ececec;
+  color: #a7a7a7;
   opacity: 1;
 }
 
@@ -2024,7 +2024,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 select.form-control:focus::-ms-value {
-  color: #495057;
+  color: #a7a7a7;
   background-color: #fff;
 }
 

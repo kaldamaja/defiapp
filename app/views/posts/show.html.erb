@@ -15,7 +15,7 @@
 
                   <div class="post-show-upper" style="display: flex;">
                     <h3 style="font-weight:700;letter-spacing: 0px;">
-                      "<%= @post.title %>"
+                      <%= @post.title %>
                     </h3>
 
                     <div class="post-right ml-auto">
@@ -39,7 +39,7 @@
 
                         <div class="post-date">
 
-                          <%= time_ago_in_words(@post.created_at).gsub('about','') + ' tagasi' %>
+                          <%= time_ago_in_words(@post.created_at).gsub('about','') + ' ago' %>
 
                         </div>         
 
@@ -54,13 +54,11 @@
                       </div>
           
                   </div>
-
+                    <div class="post-image-show">
                       <% if @post.image.attached? %>
-                         <%= image_tag @post.image, class: "post-image", style: "border-radius: 10px;" %>
-                      <% elsif @post.video.attached? %>
-                        <%= video_tag (url_for(@post.video)), :controls =>true, class: "post-image", style: "border-radius: 10px;" %>
-                      <% else %>
+                         <%= image_tag @post.image, class: "post-image" %>
                       <% end %>
+                    </div>
 
 
 
