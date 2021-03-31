@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 #kuumade postituste scope
   scope :hot, ->{ where("likes_count > ?", 1,).where("created_at >= ?", 3.day.ago).order("likes_count DESC") }
 #top postituste scope
-  scope :top, ->{ where("likes_count > ?", 0,).order("likes_count DESC") }
+  scope :top, ->{ where("likes_count >= ?", 0,).order("likes_count DESC") }
 #uute postituste scope
   scope :newposts, ->{ order('created_at DESC') }
 
