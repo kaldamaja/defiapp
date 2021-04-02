@@ -2,15 +2,15 @@ document.addEventListener("turbolinks:load", function() {
 	$input = $("[data-behavior='autocomplete']")
 
 	var options = {
-		getValue: "name",
+		getValue: "title",
 		url: function(phrase) {
 			return "/search.json?q=" + phrase;
 		},
 		categories: [
 
 			{
-				listLocation: "users",
-				header: "<b>Kasutajad</b>",
+				listLocation: "posts"
+
 			}
 		],
 		list: {

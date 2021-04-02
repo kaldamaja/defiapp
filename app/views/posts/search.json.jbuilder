@@ -1,8 +1,8 @@
 
-json.users do 
-	json.array!(@users) do |user|
-		json.name user.username
-		json.url user_path(user)
+json.posts do 
+	json.array!(@posts) do |post|
+		json.title post.title
+		json.url post_path(post)
 
 	end
 end

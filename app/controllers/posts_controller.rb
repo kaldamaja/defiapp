@@ -56,12 +56,12 @@ class PostsController < ApplicationController
 
   def search
 
-    @users = User.ransack(name_cont: params[:q]).result(distinct: true)
+    @posts = Post.ransack(title_cont: params[:q]).result(distinct: true)
     
     respond_to do |format|
       format.html {}
       format.json {
-        @users = @users.limit(7)
+        @posts = @posts.limit(7)
       }
     end
   end
