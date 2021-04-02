@@ -16,7 +16,6 @@ class PostsController < ApplicationController
     @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
     @posts = @posts.hot.includes(:comments, :likes)
     @posts = @posts.hot.includes(image_attachment: :blob)
-    @user_count = User.count
     render action: :index
 
   end
@@ -25,7 +24,6 @@ class PostsController < ApplicationController
     @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
     @posts = @posts.top.includes(:comments, :likes)
     @posts = @posts.top.includes(image_attachment: :blob)
-    @user_count = User.count
     render action: :index
   end
 
@@ -33,7 +31,6 @@ class PostsController < ApplicationController
     @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
     @posts = @posts.newposts.includes(:comments, :likes)
     @posts = @posts.newposts.includes(image_attachment: :blob)
-    @user_count = User.count
     render action: :index
   end
 

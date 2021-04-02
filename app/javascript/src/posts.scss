@@ -14,8 +14,8 @@
 }
 
 .post-image {
-	height: 200px;
-	width:200px;
+	height: 175px;
+	width:175px;
 	border-radius: 15px 0 0 15px;
 	object-fit:cover;
 	cursor:pointer;
@@ -202,7 +202,7 @@
 }
 
 .post-comment:hover .comment-img {
-	fill: #ffdb7e;
+	fill: #1da1f2;
 }
 
 .comment-img  {
@@ -311,7 +311,7 @@
 }
 
 .posts-active b {
-	color: #037dd6 !important;
+	color: #1da1f2 !important;
 }
 
 #newpostpane:hover {

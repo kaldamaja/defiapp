@@ -12,6 +12,7 @@ require("packs/posts")
 require("packs/comments")
 require("packs/readmorecomment")
 require("packs/search")
+require("packs/scrolltop")
 require("packs/sidenav")
 require("packs/jquery.easy-autocomplete")
 
