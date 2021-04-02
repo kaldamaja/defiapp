@@ -254,7 +254,7 @@
 	display:block;
 	margin-bottom:20px;
 	border-radius:15px;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border: 1px solid #ebeef0;
 }
 
 .posts-actions {
@@ -277,7 +277,7 @@
 }
 
 .hotposts:hover {
-	color: #037dd6;
+	color: #1da1f2;
 }
 
 .topposts {
@@ -292,7 +292,7 @@
 }
 
 .topposts:hover {
-	color: #037dd6;
+	color: #1da1f2;
 }
 
 .newposts {
@@ -307,7 +307,7 @@
 }
 
 .newposts:hover {
-	color: #037dd6;
+	color: #1da1f2;
 }
 
 .posts-active b {
@@ -352,7 +352,7 @@
 }
 
 #post-id {
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border: 1px solid #ebeef0;
 	border-radius:15px;
 }
 
@@ -361,8 +361,14 @@
 }
 
 @media (max-width: 995px) {
+
+  .posts-index-actions {
+  	border-radius:0px;
+  	margin-left: -15px !important;
+  	margin-right: -15px !important;
+  }
   #post-id {
-  	box-shadow:none;
+  	border-radius:0px;
   	margin-left: -15px !important;
   	margin-right: -15px !important;
   }

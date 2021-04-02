@@ -12,13 +12,14 @@
 	      <a class="nav-item nav-link" href="#" style="font-weight: 400;">Contact</a>
 	      	<% if !user_signed_in? %>
 		      <div class="login" style="min-width:130px;">
-		      	<%= link_to "Log in", new_user_session_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #037dd6;letter-spacing: 1px;margin:auto;width:100%;" %>
+		      	<%= link_to "Log in", new_user_session_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
 		      </div>
 		    <% else %>
 		      <div class="logout" style="min-width:130px;">
-		      	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #037dd6;letter-spacing: 1px;margin:auto;width:100%;" %>
+		      	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
 		      </div>
 		    <% end %>
+
 
 	    </div>
 	  </div>

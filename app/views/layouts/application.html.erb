@@ -17,10 +17,19 @@
 
     <div class="container">
         <%= render 'layouts/navbar' %>
-        <%= render 'layouts/sidenav' %>
-      <div id="main">
+
+      <div id="main" style="display:flex;">
+        <div class="main2" style="width:100%;">
           <%= render 'layouts/alerts'%>
           <%= yield %>
+        </div>
+
+
+        <div class="main3">
+          <%= render 'layouts/widget'%>
+        </div>
+
+
       </div>
     </div>
 

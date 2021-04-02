@@ -1,107 +1,91 @@
-        <% if user_signed_in? %>
-          <div id="add-crypto" style="display:inline-block;width:100%;margin-bottom:20px;">
-            <%= link_to new_post_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #037dd6;letter-spacing: 1px;margin:auto;width:100%;" do %>
-            Add Cryptocurrency
-            <% end %>
-          </div>
-        <% end %>
-
-
     
-    <div class="" style="display:flex;">
-      <div id="posts" style="width:100%;">
-        <div class="posts-index-actions">
-          <div class="posts-actions">
-            <div class="col">
-              <%= link_to top_posts_path, :class => current_page?(top_posts_path) ? "posts-active" : "" do %>
-                <div class="topposts">
-                  <b>Top</b>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="col">
-              <%= link_to hot_posts_path, :class => current_page?(hot_posts_path) ? "posts-active" : "" do %>
-                <div class="hotposts">
-                  <b>Hot</b>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="col">
-              <%= link_to newposts_posts_path, :class => current_page?(newposts_posts_path) ? "posts-active" : ""  do %>
-                <div class="newposts">
-                  <b>New</b>
-                </div>
-              <% end %>
-            </div>
-
-          </div>
-        </div>
-
-        <%= render @posts %>
-
-      </div>
-
-      <div class="widget" style="width:400px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;margin-left:20px;border-radius:15px;margin-bottom:20px;height:495px;position: sticky;top: 90px;position: -webkit-sticky;">
-        <div class="widget-up" style="padding:15px 15px 15px 20px;background: linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%);color:white;border-radius:15px 15px 0 0;">
-          <h5 style="font-weight: 700;margin-bottom:0;">Unirocket</h5>
-        </div>
-        <div class="widget-body" style="padding:20px;">
           <% if user_signed_in? %>
-            <div class="widget-welcome" style="margin-bottom:20px;">
-              Welcome back, <b><%= current_user.username %></b>!
+            <div id="add-crypto" style="display:inline-block;width:100%;margin-bottom:20px;">
+              <%= link_to new_post_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" do %>
+              Add Cryptocurrency
+              <% end %>
             </div>
           <% end %>
-          <div class="widget-info" style="margin-bottom:20px;">
-            Unirocket is a community driven DeFi token paradise. Here you can find different shit- and memecoins. Good luck searching.
+
+
+      
+      <div class="" style="display:flex;">
+        <div id="posts" style="width:100%;">
+          <div class="posts-index-actions">
+            <div class="posts-actions">
+              <div class="col">
+                <%= link_to top_posts_path, :class => current_page?(top_posts_path) ? "posts-active" : "" do %>
+                  <div class="topposts">
+                    <b>Top</b>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="col">
+                <%= link_to hot_posts_path, :class => current_page?(hot_posts_path) ? "posts-active" : "" do %>
+                  <div class="hotposts">
+                    <b>Hot</b>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="col">
+                <%= link_to newposts_posts_path, :class => current_page?(newposts_posts_path) ? "posts-active" : ""  do %>
+                  <div class="newposts">
+                    <b>New</b>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
           </div>
-          <div class="widget-members">
-              Members: <b><%= @user_count %></b>
-          </div>
-          <div class="widget-online">
-              Online: <b><%= User.online.count %></b>
-          </div>
+
+          <%= render @posts %>
+
         </div>
+
+
+
       </div>
 
+    <div id="load-more-button" style="padding-bottom:30px;">
+      <% if current_page?(root_path) || current_page?(posts_path) %>
+        <% if @posts.next_page %>
+              <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+                Load More   (<%= @posts.size %>)
+              <% end %>
+        <% end %>
+      <% end %>
+
+      <% if current_page?(hot_posts_path) %>
+        <% if @posts.next_page %>
+              <%= link_to hot_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+                Load More   (<%= @posts.size %>)
+              <% end %>
+        <% end %>
+      <% end %>
+
+      <% if current_page?(newposts_posts_path) %>
+        <% if @posts.next_page %>
+              <%= link_to newposts_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+                Load More (<%= @posts.size %>)
+              <% end %>
+        <% end %>
+      <% end %>
+
+      <% if current_page?(top_posts_path) %>
+        <% if @posts.next_page %>
+              <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
+                Load More  (<%= @posts.size %>)
+              <% end %>
+        <% end %>
+      <% end %>
     </div>
 
-<div id="load-more-button" style="padding-bottom:30px;">
-  <% if current_page?(root_path) || current_page?(posts_path) %>
-    <% if @posts.next_page %>
-          <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Load More   (<%= @posts.size %>)
-          <% end %>
-    <% end %>
-  <% end %>
+    <div id="postituste-lopp">
+      <button class="btn btn-lopp">You have reached bottom!</button>
+    </div>
 
-  <% if current_page?(hot_posts_path) %>
-    <% if @posts.next_page %>
-          <%= link_to hot_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Load More   (<%= @posts.size %>)
-          <% end %>
-    <% end %>
-  <% end %>
 
-  <% if current_page?(newposts_posts_path) %>
-    <% if @posts.next_page %>
-          <%= link_to newposts_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Load More (<%= @posts.size %>)
-          <% end %>
-    <% end %>
-  <% end %>
 
-  <% if current_page?(top_posts_path) %>
-    <% if @posts.next_page %>
-          <%= link_to top_posts_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-posts", remote: true do %>
-            Load More  (<%= @posts.size %>)
-          <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<div id="postituste-lopp">
-  <button class="btn btn-lopp">You have reached bottom!</button>
-</div>
 
