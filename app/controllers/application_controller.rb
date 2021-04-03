@@ -20,5 +20,4 @@ protected
     	current_user.touch(:last_seen_at)
     end
 
-
 end
