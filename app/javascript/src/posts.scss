@@ -11,6 +11,7 @@
 	display:block;
 	font-size:12px;
 	color: #828282;
+	margin-bottom:5px;
 }
 
 .post-image {
@@ -94,6 +95,8 @@
 	border-radius:25px;
 	transition: background 0.4s ease;
 	cursor:pointer;
+	margin-top:10px;
+	margin-bottom:10px;
 
 }
 
@@ -381,8 +384,7 @@
   	border-radius:0px;
   }
   .post-image-show {
-    margin-left: -15px !important;
-  	margin-right: -15px !important;
+
   }
   .post-image-show img {
   	border-radius:0px;
@@ -391,6 +393,13 @@
   #widget {
   	display:none;
   }
+
+  #main {
+  	margin-left: -15px !important;
+  	margin-right: -15px !important;
+  	padding:15px !important;
+  }
+
 
 }
 
