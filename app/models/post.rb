@@ -11,7 +11,9 @@ class Post < ApplicationRecord
 					length: {minimum: 5}
 
 #kuumade postituste scope
-  scope :hot, ->{ where("likes_count > ?", 1,).where("created_at >= ?", 3.day.ago).order("likes_count DESC") }
+  scope :hot, -> { joins("LEFT OUTER JOIN Likes ON likes.post_id = posts.id 
+                     AND likes.created_at BETWEEN '#{DateTime.now.beginning_of_day}' AND '#{DateTime.now.end_of_day}'")
+                    .group("posts.id").order("COUNT(likes.id) DESC") }
 #top postituste scope
   scope :top, ->{ where("likes_count >= ?", 0,).order("likes_count DESC") }
 #uute postituste scope

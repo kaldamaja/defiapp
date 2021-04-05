@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def hot
-    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2).limit(20)
     @posts = @posts.hot.includes(:comments, :likes)
     @posts = @posts.hot.includes(image_attachment: :blob)
     render action: :index

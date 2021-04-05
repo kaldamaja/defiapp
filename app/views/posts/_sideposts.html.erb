@@ -3,9 +3,6 @@
                 <div class="side-menu-post" style="display:flex;">
                   <% if post.image.attached? %>
                     <%= image_tag post.image, class: "side-menu-post-image", style: "border-radius: 10px;" %>
-                  <% elsif post.video.attached? %>
-                    <%= video_tag (url_for(post.video)), :controls =>true, class: "side-menu-post-image", style: "border-radius: 10px;" %>
-                  <% else %>
                   <% end %>
                   <div class="side-menu-post-text" style="display:block;padding-left:10px;">
 

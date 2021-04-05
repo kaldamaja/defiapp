@@ -8,7 +8,9 @@ protected
 
   # Tänase päeva 2 top postitust, mis näitab side-menüüs.
 	def top_post_today
-	@top_post = Post.includes(image_attachment: :blob).where("created_at >= ?", 1.day.ago).order("likes_count DESC").limit(1)
+	@top_post = Post.includes(image_attachment: :blob).joins("LEFT OUTER JOIN Likes ON likes.post_id = posts.id 
+                     AND likes.created_at BETWEEN '#{DateTime.now.beginning_of_day}' AND '#{DateTime.now.end_of_day}'")
+                    .group("posts.id").order("COUNT(likes.id) DESC").limit(1)
 	end
 
     def configure_permitted_parameters
