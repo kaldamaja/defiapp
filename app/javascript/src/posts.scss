@@ -367,16 +367,12 @@
 
   .posts-index-actions {
   	border-radius:0px;
-  	margin-left: -15px !important;
-  	margin-right: -15px !important;
-  	border-bottom:none;
+  	border:none;
   	margin-bottom:0;
   }
   #post-id {
   	border-radius:0px;
   	border:none;
-  	margin-left: -15px !important;
-  	margin-right: -15px !important;
   }
   .post-image {
   	width:100%;
@@ -400,7 +396,10 @@
   }
 
   #post-body {
-  	padding:20px !important;
+  }
+
+  #posts {
+  	border: 1px solid #ebeef0;
   }
 
 }

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
     @posts = @posts.includes(:comments, :likes)
     @posts = @posts.includes(image_attachment: :blob)
 
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def hot
-    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2).limit(20)
+    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
     @posts = @posts.hot.includes(:comments, :likes)
     @posts = @posts.hot.includes(image_attachment: :blob)
     render action: :index
@@ -21,23 +21,21 @@ class PostsController < ApplicationController
   end
 
   def top
-    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
     @posts = @posts.top.includes(:comments, :likes)
     @posts = @posts.top.includes(image_attachment: :blob)
     render action: :index
   end
 
   def newposts
-    @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 2)
+    @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
     @posts = @posts.newposts.includes(:comments, :likes)
     @posts = @posts.newposts.includes(image_attachment: :blob)
     render action: :index
   end
 
-  def sideposts
-    respond_to do |format|
-      format.js
-    end
+  def widget_top
+
   end
 
   # GET /posts/1 or /posts/1.json
