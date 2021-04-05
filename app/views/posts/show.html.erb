@@ -20,7 +20,7 @@
                       </h3>
 
                       <div class="post-right ml-auto">
-                        <% if @post.user == current_user %>
+                        <% if @post.user == current_user || current_user.admin %>
                           <div class="dropdown ml-auto">
                             <div class="post-dots" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <%= embedded_svg 'dots.svg',class: 'post-dots-img' %>

@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def destroy
   	@comment = @post.comments.find(params[:id])
 
-    if @comment.user_id == current_user.id || @post.user == current_user
+    if @comment.user_id == current_user.id || @post.user == current_user || current_user.admin
     	@comment.destroy
     else
         flash[:notice] = 'Viga! Antud kommentaar ei ole Teie loodud!'

@@ -15,7 +15,7 @@ protected
 	end
 
   def promoted_post
-  @promoted_post = Post.includes(image_attachment: :blob).where(sticky: true)
+  @promoted_post = Post.includes(image_attachment: :blob).where(sticky: true).limit(2)
   end
 
 

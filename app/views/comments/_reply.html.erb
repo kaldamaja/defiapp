@@ -44,7 +44,7 @@
 
 
                 <div class="comment-kustuta" style="margin-top:10px;font-size: 12px;font-weight: 500;">
-                  <% if reply.user == current_user || @post.user == current_user %>
+                  <% if reply.user == current_user || @post.user == current_user || current_user.admin %>
                     <%= link_to "Delete", post_comment_path(@post, reply), method: :delete, data: {confirm: 'Kas olete kindel?'}, remote: true, style: "color:#333;" %>
                   <% end %>
                 </div>

@@ -9,7 +9,16 @@
             <div class="col" id="post-body" style="padding:10px;">
                 <div class="card-block px-2">
 
+                  <div class="post-up" style="display:flex;">
                     <h4 class="card-title" style="font-weight:600;letter-spacing: 0px;margin-bottom:0.3rem;"><%= link_to post.title, (post), style: "color:#333;" %></h4>
+                    
+                      <div class="ml-auto" style="color:#ff8200;">
+                        <% if post.sticky? %>
+                          Promoted
+                        <% end %>
+                      </div>
+                  </div>
+
                     <div class="post-date">
                       Listed <%= time_ago_in_words(post.created_at).gsub('about','') + ' ago' %>
                     </div>
@@ -53,12 +62,6 @@
 
                         <div class="post-comment-number">
                           <%= post.comments.size %>
-                        </div>
-
-                        <div class="ml-auto" style="color:#ff8200;">
-                          <% if post.sticky? %>
-                            Promoted
-                          <% end %>
                         </div>
                     </div>
                   </div>

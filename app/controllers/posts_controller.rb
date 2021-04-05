@@ -95,7 +95,7 @@ class PostsController < ApplicationController
 
   def post_omanik
     @post = Post.find(params[:id])
-      unless @post.user_id == current_user.id
+      unless @post.user_id == current_user.id || current_user.admin
         flash[:notice] = 'Viga! Antud postitus ei ole Teie loodud!'
       redirect_to posts_path
     end
