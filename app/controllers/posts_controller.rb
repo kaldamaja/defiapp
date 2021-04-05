@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 5)
     @posts = @posts.includes(:comments, :likes)
     @posts = @posts.includes(image_attachment: :blob)
 
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def hot
-    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
+    @posts = Post.hot.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 5)
     @posts = @posts.hot.includes(:comments, :likes)
     @posts = @posts.hot.includes(image_attachment: :blob)
     render action: :index
@@ -21,14 +21,14 @@ class PostsController < ApplicationController
   end
 
   def top
-    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
+    @posts = Post.top.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 5)
     @posts = @posts.top.includes(:comments, :likes)
     @posts = @posts.top.includes(image_attachment: :blob)
     render action: :index
   end
 
   def newposts
-    @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 4)
+    @posts = Post.newposts.includes(user: :avatar_attachment).paginate(page: params[:page], per_page: 5)
     @posts = @posts.newposts.includes(:comments, :likes)
     @posts = @posts.newposts.includes(image_attachment: :blob)
     render action: :index
@@ -79,18 +79,25 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    if current_user.admin
+      @post = Post.new(post_params)
+      @post.user = current_user
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: "Postitus edukalt loodud!" }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+      respond_to do |format|
+          if @post.save
+            format.html { redirect_to @post, notice: "Postitus edukalt loodud!" }
+            format.json { render :show, status: :created, location: @post }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @post.errors, status: :unprocessable_entity }
+          end
       end
+
+    else
+        flash[:notice] = 'You dont have permission to do that!'
+        redirect_to posts_path
     end
+
   end
 
   def post_omanik

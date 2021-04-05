@@ -15,21 +15,27 @@
           <% if user_signed_in? %>
             <div class="widget-welcome" style="margin-bottom:20px;">
               <% if current_user.admin %>
-                <p style="color:red;">Admin</p>
+                <b><p style="color:#1da1f2;margin-bottom: 0px;">Admin</p></b>
               <% end %>
-              <br>
               Welcome back, <b><%= current_user.username %></b>!
             </div>
           <% end %>
           <div class="widget-info" style="margin-bottom:20px;">
             DeFi Lab is a community driven DeFi token paradise. Here you can find different shit and memecoins. Good luck searching.
           </div>
+
           <div class="widget-members">
               Members: <b><%= User.count %></b>
           </div>
+
           <div class="widget-online">
               Online: <b><%= User.online.count %></b>
           </div>
+
+          <div class="widget-posts">
+              DeFi Tokens: <b>1000</b>
+          </div>
+
           <% if !user_signed_in? %>
             <div class="widget-signup" style="padding-top:30px;">
               <%= link_to "Sign up", new_user_registration_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>

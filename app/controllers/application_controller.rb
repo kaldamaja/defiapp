@@ -7,13 +7,14 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  # Tänase päeva 1 top postitust, mis näitab widgetis.
+  # Tänase päeva 1 top postitus widgetis.
 	def top_post_today
 	@top_post = Post.includes(image_attachment: :blob).joins("LEFT OUTER JOIN Likes ON likes.post_id = posts.id 
                      AND likes.created_at BETWEEN '#{DateTime.now.beginning_of_day}' AND '#{DateTime.now.end_of_day}'")
                     .group("posts.id").order("COUNT(likes.id) DESC").limit(1)
 	end
 
+  # Promoted postitused widgetis.
   def promoted_post
   @promoted_post = Post.includes(image_attachment: :blob).where(sticky: true).limit(2)
   end
