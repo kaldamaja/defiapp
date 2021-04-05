@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_183907) do
+ActiveRecord::Schema.define(version: 2021_04_05_154728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_183907) do
     t.boolean "sticky", default: false
     t.integer "comments_count", default: 0
     t.integer "likes_count", default: 0
+    t.text "website"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

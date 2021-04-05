@@ -25,6 +25,11 @@
     <%= form.text_area :body, class: "form-control"  %>
   </div>
 
+  <div class="field">
+    <%= form.label :website, 'Website' %>
+    <%= form.text_area :website, class: "form-control"  %>
+  </div>
+
   <%= form.label :image, '' %><br>
   <div class="btn">
   <%= form.file_field :image %>
