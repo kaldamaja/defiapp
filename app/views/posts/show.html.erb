@@ -26,9 +26,9 @@
                                 <%= embedded_svg 'dots.svg',class: 'post-dots-img' %>
                             </div>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">      
-                                    <a><%= link_to "Muuda", edit_post_path(@post), class: "dropdown-item", id: "post-muuda" %></a>
+                                    <a><%= link_to "Edit", edit_post_path(@post), class: "dropdown-item", id: "post-muuda" %></a>
                                   
-                                    <a><%= link_to "Kustuta", post_path(@post), method: :delete, data: {confirm: 'Kas olete kindel?'}, class: "dropdown-item", id: "post-kustuta" %></a>
+                                    <a><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Kas olete kindel?'}, class: "dropdown-item", id: "post-kustuta" %></a>
                                 </div>
                           </div>
                         <% end %>
