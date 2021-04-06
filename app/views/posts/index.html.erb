@@ -1,11 +1,12 @@
-    
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
             <div id="add-crypto" style="display:inline-block;width:100%;margin-bottom:20px;">
               <%= link_to new_post_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" do %>
               Add Cryptocurrency
               <% end %>
             </div>
           <% end %>
+        <% end %>
 
 
       
