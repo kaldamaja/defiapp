@@ -38,7 +38,7 @@
 
               </div>
 
-              <div class="comment-body" style="background-image:<%= 'linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%)' if reply.user == current_user %>">
+              <div class="comment-body" style="color: <%= 'white' if reply.user == current_user %>;background-image:<%= 'linear-gradient(139deg, rgba(250,177,219,1) 0%, rgba(255,219,126,1) 100%)' if reply.user == current_user %>">
                 <%= reply.body %>
               </div>
 

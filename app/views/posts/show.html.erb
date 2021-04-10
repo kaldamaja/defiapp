@@ -37,8 +37,12 @@
                       </div>
                     </div>
 
-
-
+                        <div class="post-marketing-logos" style="display:flex;">
+                          <%= embedded_svg 'pannkook.svg', class: "post-marketing" %>
+                          <%= embedded_svg 'poocoin.svg', class: "post-marketing" %>
+                          <%= embedded_svg 'bscscan.svg', class: "post-marketing" %>
+                          <i class="fab fa-telegram post-marketing" style="color:#28a8e9;"></i>
+                        </div>
 
                           <div class="post-date">
 
@@ -120,7 +124,7 @@
   <% else %>
 
     <div class="comment-login">
-      <p>Please <%= link_to "login", new_user_session_path, style: "color:#1da1f2;" %> or <%= link_to "sign up", new_user_registration_path, style: "color:#1da1f2;" %> to comment to our comments section.</p>
+      <p>Please <%= link_to "login", new_user_session_path, style: "color:#007bff;" %> or <%= link_to "sign up", new_user_registration_path, style: "color:#007bff;" %> to comment to our comments section.</p>
     </div>
 
   <% end %>

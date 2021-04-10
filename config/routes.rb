@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root :to => "posts#index"
 
-  resources :posts do 
+  resources :posts, :path => 'coins' do 
      resources :comments, only: [:create, :destroy, :new]
 
     collection do

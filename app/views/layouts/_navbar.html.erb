@@ -1,5 +1,5 @@
 <nav class="navbar nav-center fixed-top navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="/">DeFi Lab</a>
+	  <a class="navbar-brand" href="/">crapcoincap</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	  	<div class="burger-icon">
 	  		<%= image_tag 'burger.svg', size: "16" %>
@@ -12,11 +12,11 @@
 	      <a class="nav-item nav-link" href="#" style="font-weight: 400;">Contact</a>
 	      	<% if !user_signed_in? %>
 		      <div class="login" style="min-width:130px;">
-		      	<%= link_to "Log in", new_user_session_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
+		      	<%= link_to "Log in", new_user_session_path, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #007bff;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
 		      </div>
 		    <% else %>
 		      <div class="logout" style="min-width:130px;">
-		      	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #1da1f2;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
+		      	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn", style: "color:white;border-radius: 25px;font-size:14px;background-color: #007bff;letter-spacing: 1px;margin:auto;width:100%;font-weight:700;" %>
 		      </div>
 		    <% end %>
 

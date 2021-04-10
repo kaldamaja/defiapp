@@ -26,7 +26,7 @@ gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.3'
 gem 'ransack', '~> 2.4', '>= 2.4.1'
 
-
+gem "recaptcha"
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
 

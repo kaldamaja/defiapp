@@ -2,8 +2,8 @@ $(document).on("turbolinks:load",function() {
     // Configure/customize these variables.
     var showChar = 150;  // How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = "Loe rohkem";
-    var lesstext = "Peida";
+    var moretext = "Read more";
+    var lesstext = "Hide";
     
 
     $('.comment-body').each(function() {

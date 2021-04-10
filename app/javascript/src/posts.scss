@@ -12,6 +12,7 @@
 	font-size:12px;
 	color: #828282;
 	margin-bottom:5px;
+	margin-top:5px;
 }
 
 .post-image {
@@ -28,6 +29,22 @@
 }
 
 .post-image:hover {
+	opacity: 0.6;
+}
+
+.post-marketing {
+	display: grid;
+	text-align:center;
+	height:35px;
+	width:35px;
+	border-radius:25px;
+	transition: opacity 0.9s ease;
+	cursor:pointer;
+	font-size:35px;
+	margin-right:10px;
+}
+
+.post-marketing:hover {
 	opacity: 0.6;
 }
 
@@ -280,7 +297,7 @@
 }
 
 .hotposts:hover {
-	color: #1da1f2;
+	color: #007bff;
 }
 
 .topposts {
@@ -295,7 +312,7 @@
 }
 
 .topposts:hover {
-	color: #1da1f2;
+	color: #007bff;
 }
 
 .newposts {
@@ -310,11 +327,11 @@
 }
 
 .newposts:hover {
-	color: #1da1f2;
+	color: #007bff;
 }
 
 .posts-active b {
-	color: #1da1f2 !important;
+	color: #007bff !important;
 }
 
 #newpostpane:hover {
