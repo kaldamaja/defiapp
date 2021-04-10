@@ -7,7 +7,6 @@ class Post < ApplicationRecord
 
   validate :user_post_limit, :on => :create
   validates :body, presence: true
-  validates :website, presence: true
   validates :title, presence: true,
 					length: {minimum: 5}
 
