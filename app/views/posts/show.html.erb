@@ -8,6 +8,13 @@
                          <%= image_tag @post.cover, class: "post-image", style: "width:100%;height:275px;border-radius:0px;" %>
                       <% end %>
                     </div>
+
+  <div class="post-logo-show" style="margin-top:-75px;margin-left:10px;z-index: 20;">
+    <% if @post.image.attached? %>
+      <%= image_tag @post.image, style: "width:115px;height:115px;border-radius:50%;padding: 2px;background-color: #fff;" %>
+    <% end %>
+  </div>
+
   <div class="post-show-body" style="padding:15px;">
     <% if @post.sticky? %>
       <p style="color:#ff8200;margin-bottom:0px;font-weight: 700;">Promoted</p>
