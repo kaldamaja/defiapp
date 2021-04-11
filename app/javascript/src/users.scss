@@ -1,5 +1,4 @@
 .user-page-content {
-	max-width: 35rem;
 }
 
 .user-page-img {
@@ -64,3 +63,9 @@
 
 
 
+@media (max-width: 995px) {
+	.user-page-button {
+		padding-left:15px;
+		padding-right:15px;
+	}
+}

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root :to => "posts#index"
+  get "pages/about"
+  get "pages/contact"
 
   resources :posts, :path => 'coins' do 
      resources :comments, only: [:create, :destroy, :new]

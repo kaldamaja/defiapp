@@ -1,4 +1,4 @@
-<h2>Seaded</h2>
+<h2>Edit</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -34,7 +34,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(Jäta tühjaks kui sa ei soovi seda muuta!)</i><br />
+    <%= f.label :password %> <i>(leave blank if you dont want to change password!)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", :class => 'form-control' %>
     <% if @minimum_password_length %>
       <br />
@@ -55,10 +55,12 @@
   <br>
 
   <div class="actions">
-    <%= f.submit "Uuenda" %>
+    <%= f.submit "Update", class: "btn", style: "background-color:#007bff;color:white;" %>
   </div>
 <% end %>
 
-<h3>Kustuta kasutaja</h3>
+<br>
 
-<p>Pole rahul? <%= button_to "Kustuta kasutaja", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<h3>Delete account</h3>
+
+<p>Not satisfied? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn", style: "background-color:#ff5a71;color:white;" %></p>
