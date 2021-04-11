@@ -29,7 +29,7 @@ class Post < ApplicationRecord
 
 # Kontrollib kas kasutaja onteinud päevas rohkem kui 3 postitust.
 	  def user_post_limit 
-	   if user.posts.today.count >= 3
+	   if user.posts.today.count >= 15
 	     errors.add(:base, "Päevalimiit on täis")
 	   else
 

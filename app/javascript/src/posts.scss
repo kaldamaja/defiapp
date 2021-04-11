@@ -221,7 +221,7 @@
 }
 
 .post-comment:hover .comment-img {
-	fill: #1da1f2;
+	fill: #007bff;
 }
 
 .comment-img  {
@@ -416,6 +416,17 @@
 
   #posts {
   	border: 1px solid #ebeef0;
+  }
+
+  #add-crypto {
+  	padding-right: 15px;
+  	padding-left:15px;
+  }
+
+  #index-posts-button {
+  	padding-right: 15px;
+  	padding-left: 15px;
+  	padding-top:15px;
   }
 
 }

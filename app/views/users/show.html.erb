@@ -31,6 +31,7 @@
 		</div>
 	<% end %>
 
+
 	<div class="user-created-at" style="display:flex;justify-content: center;margin: 20px 0 10px 0;">
 		<b>Joined <%= time_ago_in_words(@user.created_at).gsub('about','') + ' ago' %></b>
 	</div>
@@ -77,8 +78,8 @@
 
 			<div class="load-more-user-posts-button" style="padding-bottom:50px;margin-top:10px;">
 		      <% if @posts.next_page %>
-		          <%= link_to user_path(:page => @posts.next_page),data: { disable_with: "Laen..." }, class: "btn btn-load-more", id: "load-more-user-posts", remote: true do %>
-		            Laadi postitusi juurde
+		          <%= link_to user_path(:page => @posts.next_page),data: { disable_with: "Loading..." }, class: "btn btn-load-more", id: "load-more-user-posts", remote: true do %>
+		            Load more
 
 		          <% end %>
 
@@ -86,7 +87,7 @@
 		    </div>
 
 			<div id="postituste-lopp">
-			  <button class="btn btn-lopp">Oled jõudnud lõppu!</button>
+			  <button class="btn btn-lopp">You have reached bottom! - Back to top</button>
 			</div>
 
  
