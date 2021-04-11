@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_one_attached :image, dependent: :destroy
+  has_one_attached :cover, dependent: :destroy
 
   validate :user_post_limit, :on => :create
   validates :body, presence: true

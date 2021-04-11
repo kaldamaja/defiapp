@@ -1,4 +1,4 @@
-<h1>Muuda</h1>
+<h1>Edit</h1>
 
 <%= form_with(model: @post) do |form| %>
 
@@ -16,12 +16,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title, 'Pealkiri' %>
+    <%= form.label :title, 'Title' %>
     <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :body, 'Sisu' %>
+    <%= form.label :body, 'Description' %>
     <%= form.text_area :body, class: "form-control"  %>
   </div>
 
@@ -50,18 +50,20 @@
     <%= form.text_area :telegram, class: "form-control"  %>
   </div>
 
-  <%= form.label :image, '' %><br>
-  <div class="btn">
+  <%= form.label :image, 'Logo' %><br>
   <%= form.file_field :image %>
-  </div>
+
+  <br>
+
+  <%= form.label :cover, 'Cover' %><br>
+  <%= form.file_field :cover %>
 
 <br>
 
-  <div class="actions">
-    <div class="btn">
+  <div class="actions" style="margin-top:20px;">
     <%= form.submit %>
-    </div>
   </div>
+
 <% end %>
 
 <%= link_to 'Show', @post %> |
