@@ -2,9 +2,11 @@
   <div class="card" id="post-index-page" style="margin-bottom:20px;">
         <div class="row" id="post-id" style="margin: 0;">
 
+              <%= link_to post_path(post) do %>
                 <% if post.image.attached? %>
-                  <%= image_tag post.image, class: "post-image", id: "image-#{dom_id(post)}",  data: { target: "#myModal-#{dom_id(post)}", toggle: "modal"} %>
+                  <%= image_tag post.image, class: "post-image" %>
                 <% end %>
+              <% end %>
 
             <div class="col" id="post-body" style="padding:10px;">
                 <div class="card-block px-2">
@@ -68,16 +70,3 @@
             </div>
         </div>
   </div>
-
-
-                        <div class="modal fade" id="myModal-<%= dom_id(post) %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-
-                              <% if post.image.attached? %>
-                                <%= image_tag post.image %>
-                              <% end %>
-                              
-                            </div>
-                          </div>
-                        </div>
