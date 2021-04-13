@@ -15,7 +15,7 @@
 }
 
 .post-image {
-	height: 175px;
+	height: auto;
 	width:175px;
 	border-radius: 15px 0 0 15px;
 	object-fit:cover;
@@ -221,7 +221,7 @@
 }
 
 .post-comment:hover .comment-img {
-	fill: #007bff;
+	fill: #6c63ff;
 }
 
 .comment-img  {
@@ -296,7 +296,7 @@
 }
 
 .hotposts:hover {
-	color: #007bff;
+	color: #6c63ff;
 }
 
 .topposts {
@@ -311,7 +311,7 @@
 }
 
 .topposts:hover {
-	color: #007bff;
+	color: #6c63ff;
 }
 
 .newposts {
@@ -326,11 +326,11 @@
 }
 
 .newposts:hover {
-	color: #007bff;
+	color: #6c63ff;
 }
 
 .posts-active b {
-	color: #007bff !important;
+	color: #6c63ff !important;
 }
 
 #newpostpane:hover {
