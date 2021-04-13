@@ -23,8 +23,8 @@
               <div class="comment-middle-up">
 
                 <div class="comment-username">
-                    <% if @post.user == reply.user %>
-                      <%= link_to reply.user.username, (user_path(@user) if @user = reply.user), style: "color:#333;" %>
+                    <% if reply.user.admin %>
+                      <%= link_to reply.user.username, (user_path(@user) if @user = reply.user), style: "color:#e0245e;" %>
                     <% else %>
                       <%= link_to reply.user.username, (user_path(@user) if @user = reply.user), style: "color:#333;" %>
                     <% end %>

@@ -25,8 +25,8 @@
 
                   <div class="comment-username">
                     
-                    <% if @post.user == comment.user %>
-                      <%= link_to comment.user.username, (user_path(@user) if @user = comment.user), style: "color:#333;" %>
+                    <% if comment.user.admin %>
+                      <%= link_to comment.user.username, (user_path(@user) if @user = comment.user), style: "color:#e0245e;" %>
                     <% else %>
                       <%= link_to comment.user.username, (user_path(@user) if @user = comment.user), style: "color:#333;" %>
                     <% end %>
