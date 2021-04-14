@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    tty: true
+    stdin_open: true
+    image: app
+    build:
+      context: ./app
+    links:
+      - db
+    environment:
+      - APP_DBHOST=db
+      - RAILS_ENV=development
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+    volumes:
+      - ./app:/opt/webapps/app
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+    restart: on-failure
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres:9.4
+    volumes:
+      - pg:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: on-failure
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+volumes:
+  pg:
+  tmp:
